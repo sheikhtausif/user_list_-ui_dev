@@ -1,0 +1,56 @@
+.userContainerModal {
+    padding: 32px;
+}
+
+.userContainerModal>p:first-child {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgb(116, 109, 109);
+}
+
+.userContainerModal>p:last-child {
+    text-align: justify;
+}
+
+.userDetailsModel {
+    margin: 20px auto;
+}
+
+.userDetailsModel>div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.moreContactDetails {
+    height: 140px;
+    background: #F6F6F6;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+}
+
+.moreContactDetails>p {
+    font-size: 18px;
+    color: rgb(92, 86, 86);
+    font-weight: 500;
+}
+
+.contactButton {
+    gap: 25px;
+}
+
+.contactButton>button {
+    width: 110px;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.contactButton>button:first-child {
+    background: #00CFE8;
+}
+
+.contactButton>button:last-child {
+    background-color: #7367F0;
+}

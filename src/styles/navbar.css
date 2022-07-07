@@ -1,0 +1,100 @@
+.navContainer {
+    width: 100%;
+    padding: 12px 20px;
+}
+
+.navLeft {
+    width: 50%;
+}
+
+.logoDiv {
+    width: 50px;
+    height: 50px;
+}
+
+.logoDiv>img, .adminProfileDiv>img {
+    width: 100%;
+    height: 100%;
+}
+
+.searchBoxDiv {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 5px;
+    padding: 9px 12px;
+    width: 70%;
+}
+
+.searchBoxDiv>input {
+    padding: 8px;
+    border: none;
+    outline: none;
+}
+
+.searchBoxDiv>i {
+    cursor: pointer;
+}
+
+.navRight {
+    gap: 10px;
+}
+
+.adminDetails>p {
+    color: rgb(173, 166, 166);
+    font-size: 12px;
+    text-align: right;
+}
+
+.adminDetails>p:first-child {
+    font-weight: bold;
+}
+
+.adminDetails>p:last-child {
+    font-size: 10px;
+}
+
+.adminProfileDiv {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.adminOnline {
+    width: 10px;
+    height: 10px;
+    background: rgb(20, 208, 20);
+    border-radius: 50%;
+    border: 2px solid white;
+    position: absolute;
+    right: 3.5px;
+    bottom: 3px;
+}
+
+@media only screen and (max-width: 768px) {
+    .navLeft {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navLeft {
+        width: 75%;
+    }
+
+    .searchBoxDiv {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .navContainer {
+        padding: 8px 12px;
+    }
+
+    .navLeft {
+        width: 80%;
+    }
+
+    .searchBoxDiv {
+        padding: 4px;
+    }
+}

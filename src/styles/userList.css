@@ -1,0 +1,119 @@
+.userListContainer {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.userListHead>p {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgb(116, 109, 109);
+}
+
+.userListHead>button {
+    padding: 8px 20px;
+    border-radius: 5px;
+    background-color: #7367F0;
+    border: none;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+table {
+    position: sticky;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(189, 185, 185);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(152, 145, 145);
+    cursor: pointer;
+}
+
+thead {
+    width: 100%;
+    background: rgb(238, 234, 234);
+    margin-top: 50px;
+    font-size: 12px;
+    color: rgb(116, 109, 109);
+    font-weight: 500;
+}
+
+thead th:first-child {
+    padding-left: 40px;
+}
+
+thead>tr {
+    display: grid;
+    grid-template-columns: 32% 30% 24% 14%;
+}
+
+tbody>tr {
+    display: grid;
+    grid-template-columns: 32% 32% 24% 12%;
+}
+
+th {
+    border: none;
+    padding: 8px;
+}
+
+.tableFixed tbody {
+    display: block;
+    height: 300px;
+    overflow-y: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .userListContainer {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .userListContainer {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .userListContainer {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .userListContainer {
+        width: 100%;
+    }
+
+    .userListHead {
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    tHead>tr {
+        grid-template-columns: 60% 40%;
+    }
+
+    tbody>tr {
+        grid-template-columns: 50% 50%;
+    }
+}

@@ -1,0 +1,74 @@
+tbody>tr {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+tbody td:nth-child(4) {
+    text-align: center;
+}
+
+.userDetailsTD {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.userDetails>p {
+    text-align: left;
+}
+
+.userDetails>p:first-child {
+    font-weight: bold;
+    font-size: 15px;
+    color: #7367F0;
+    cursor: pointer;
+}
+
+.userDetails>p:last-child {
+    color: rgb(173, 166, 166);
+    font-size: 14px;
+}
+
+.userProfile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.userEmail {
+    font-size: 14px;
+    color: rgb(173, 166, 166);
+}
+
+.userButton {
+    padding: 4px 10px;
+    border-radius: 10px;
+    background-color: rgb(252, 252, 220);
+    color: rgb(166, 166, 13);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.active {
+    background-color: #E5F8EE;
+    color: #5ED593;
+}
+
+.inactive {
+    background-color: #EDEEEF;
+    color: #868A8F;
+}
+
+.removed {
+    background-color: #FFF3E8;
+    color: #FFAD5E;
+}
+
+.userVisibility {
+    height: 20px;
+    width: 20px;
+    color: rgb(173, 166, 166);
+}
