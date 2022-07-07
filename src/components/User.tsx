@@ -12,6 +12,7 @@ interface UserProps {
 
 const User: React.FC<UserProps> = ({ user, active, inactive, removed }) => {
     const { first_name, last_name, email, avatar } = user;
+
     const userEmail = email.split('.')[0];
 
     const [modalShow, setModalShow] = useState<boolean>(false);
@@ -25,21 +26,27 @@ const User: React.FC<UserProps> = ({ user, active, inactive, removed }) => {
 
     }, [screenWidth]);
 
+    const onShow = () => {
+        setModalShow(true);
+    }
+
     return (
         <>
-            <tr>
-                <td className="userDetailsTD">
+            <tr key={user.id + Date.now()}>
+                <td className="userDetailsTD" key={1}>
                     <img src={avatar} alt="userProfile" className='userProfile' />
                     <div className="userDetails">
-                        <p onClick={() => setModalShow(true)}>{`${first_name} ${last_name}`}</p>
+                        <p onClick={onShow}>{`${first_name} ${last_name}`}</p>
                         <p>{`@${userEmail}`}</p>
                     </div>
                 </td>
-                <td className='userEmail'>{email}</td>
-                {screenWidth > 500 && <td>
+                <td className='userEmail' key={2}>{email}</td>
+                {screenWidth > 500 && <td key={3}>
                     {active ? <button className='userButton active'>Active</button> : inactive ? <button className='userButton inactive'>Inactive</button> : removed ? <button className='userButton removed'>Removed</button> : <button className='userButton'>No action</button>}
                 </td>}
-                {screenWidth > 500 && <td><img src={visibility} alt="visibilityIcon" className='userVisibility' /></td>}
+                {screenWidth > 500 && <td key={4}>
+                    <img src={visibility} alt="visibilityIcon" className='userVisibility' />
+                </td>}
             </tr>
 
             <UserModel
@@ -51,7 +58,6 @@ const User: React.FC<UserProps> = ({ user, active, inactive, removed }) => {
                 onHide={() => setModalShow(false)}
             />
         </>
-
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import User from './User';
 import "../styles/userList.css";
 import axios from 'axios';
@@ -7,17 +7,21 @@ import axios from 'axios';
 const UserList: React.FC = () => {
     const [screenWidth, setScreenWidth] = useState<number>(window.screen.width);
 
-    const tableBodyRef = useRef<HTMLTableSectionElement | null>(null);
-
+    const [loading, setLoading] = useState<boolean>(true);
     const [users, setUsers] = useState<any[]>([]);
     const [page, setPage] = useState<number>(1);
 
     const getUsers = async (page: number) => {
-        console.log("page", page)
         const { data } = await axios.get(`https://reqres.in/api/users?page=${page}`);
-        console.log('res:', data.data)
+        // console.log('res:', data.data)
 
-        setUsers(data.data);
+        if (page > 1) {
+            setUsers([...users, ...data.data]);
+        }
+        else {
+            setUsers(data.data);
+        }
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -27,26 +31,19 @@ const UserList: React.FC = () => {
     }, [screenWidth]);
 
     useEffect(() => {
-        let isUserData = true;
-        if (isUserData) {
-            getUsers(page);
-            isUserData = false;
-        }
-        return () => {
-            isUserData = false;
-        };
-        
-    }, [page]);
+        getUsers(page);
+        // eslint-disable-next-line
+    }, []);
 
-    const addMoreUsers = () => {
-        let a = tableBodyRef?.current?.scrollTop
-        let b = tableBodyRef?.current?.clientHeight
-        let c = tableBodyRef?.current?.scrollHeight
+    const addMoreUsers = (event: any) => {
+        let a = event.target.scrollTop
+        let b = event.target.clientHeight
+        let c = event.target.scrollHeight
 
-        if (a && b && c) {
-            if (a + b >= c - 50) {
-                setPage(prev => prev + 1);
-            }
+        if (a + b >= c - 50) {
+            getUsers(page + 1);
+            setPage(prev => prev + 1);
+            setLoading(true);
         }
     }
 
@@ -65,7 +62,7 @@ const UserList: React.FC = () => {
                         {screenWidth > 500 && <th>ACTIONS</th>}
                     </tr>
                 </thead>
-                <tbody onScroll={addMoreUsers} ref={tableBodyRef}>
+                {!loading && <tbody onScroll={addMoreUsers}>
                     {users.map((user: any) => (
                         <User key={user.id}
                             user={user}
@@ -74,7 +71,7 @@ const UserList: React.FC = () => {
                             removed={user.id % 5 === 0}
                         />
                     ))}
-                </tbody>
+                </tbody>}
             </table>
         </div>
     )

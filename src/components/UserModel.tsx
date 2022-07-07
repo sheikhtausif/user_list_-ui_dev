@@ -18,10 +18,8 @@ const UserModel: React.FC<ModelProps> = ({ user, show, onHide, active, inactive,
 
     return (
         <Modal
-            // width="30%"
             show={show}
             onHide={onHide}
-            // size="sm"
             aria-labelledby="contained-modal-title-vcenter"
             centered>
             <div className="userContainerModal">
